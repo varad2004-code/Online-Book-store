@@ -1,0 +1,46 @@
+CREATE TABLE cart (
+  id SERIAL PRIMARY KEY,
+  user_id INT NOT NULL,
+  name VARCHAR(100) NOT NULL,
+  price INT NOT NULL,
+  quantity INT NOT NULL,
+  image VARCHAR(100) NOT NULL
+);
+
+CREATE TABLE message (
+  id SERIAL PRIMARY KEY,
+  user_id INT NOT NULL,
+  name VARCHAR(100) NOT NULL,
+  email VARCHAR(100) NOT NULL,
+  number VARCHAR(12) NOT NULL,
+  message VARCHAR(500) NOT NULL
+);
+
+CREATE TABLE orders (
+  id SERIAL PRIMARY KEY,
+  user_id INT NOT NULL,
+  name VARCHAR(100) NOT NULL,
+  number VARCHAR(12) NOT NULL,
+  email VARCHAR(100) NOT NULL,
+  method VARCHAR(50) NOT NULL,
+  address VARCHAR(500) NOT NULL,
+  total_products TEXT NOT NULL,
+  total_price INT NOT NULL,
+  placed_on VARCHAR(50) NOT NULL,
+  payment_status VARCHAR(20) NOT NULL DEFAULT 'pending'
+);
+
+CREATE TABLE products (
+  id SERIAL PRIMARY KEY,
+  name VARCHAR(100) NOT NULL,
+  price INT NOT NULL,
+  image VARCHAR(100) NOT NULL
+);
+
+CREATE TABLE users (
+  id SERIAL PRIMARY KEY,
+  name VARCHAR(100) NOT NULL,
+  email VARCHAR(100) NOT NULL,
+  password VARCHAR(100) NOT NULL,
+  user_type VARCHAR(20) NOT NULL DEFAULT 'user'
+);
